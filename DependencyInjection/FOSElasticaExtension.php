@@ -523,6 +523,7 @@ class FOSElasticaExtension extends Extension
     {
         switch ($typeConfig['driver']) {
             case 'orm':
+            case 'phpcr':
                 $eventsClass = '\Doctrine\ORM\Events';
                 break;
             case 'phpcr':
