@@ -142,7 +142,7 @@ class PopulateCommand extends ContainerAwareCommand
      * @param boolean         $reset
      * @param array           $options
      */
-    private function populateIndex(OutputInterface $output, $index, $reset, $options)
+    protected function populateIndex(OutputInterface $output, $index, $reset, $options)
     {
         $event = new IndexPopulateEvent($index, $reset, $options);
         $this->dispatcher->dispatch(IndexPopulateEvent::PRE_INDEX_POPULATE, $event);
@@ -171,7 +171,7 @@ class PopulateCommand extends ContainerAwareCommand
      * @param boolean         $reset
      * @param array           $options
      */
-    private function populateIndexType(OutputInterface $output, $index, $type, $reset, $options)
+    protected function populateIndexType(OutputInterface $output, $index, $type, $reset, $options)
     {
         $event = new TypePopulateEvent($index, $type, $reset, $options);
         $this->dispatcher->dispatch(TypePopulateEvent::PRE_TYPE_POPULATE, $event);
@@ -197,7 +197,7 @@ class PopulateCommand extends ContainerAwareCommand
      * @param string          $index
      * @param bool            $postPopulate
      */
-    private function refreshIndex(OutputInterface $output, $index, $postPopulate = true)
+    protected function refreshIndex(OutputInterface $output, $index, $postPopulate = true)
     {
         if ($postPopulate) {
             $this->resetter->postPopulate($index);
